@@ -1,9 +1,9 @@
 /*
-	Arduino‚ÅSOS API‚ğì»‚·‚éˆê—á
-	InsertResutl API(JSONŒ`®)‚ğì‚é
+	Arduinoã§SOS APIã‚’ä½œè£½ã™ã‚‹ä¸€ä¾‹
+	InsertResutl API(JSONå½¢å¼)ã‚’ä½œã‚‹
 */
 
-// InsertSensor API‚Ì—á
+// InsertSensor APIã®ä¾‹
 //
 String insertresult = R"({
   "request": "InsertResult",
@@ -14,29 +14,29 @@ String insertresult = R"({
 })";
 
 
-/* SOS APIƒNƒ‰ƒX */
+/* SOS APIã‚¯ãƒ©ã‚¹ */
 class SOS_API {
 private:
 
 protected:
-	String original;	//API‚Ì•ÒW‘O
-	String copy;		//•ÒW—p
+	String original;	//APIã®ç·¨é›†å‰
+	String copy;		//ç·¨é›†ç”¨
 public:
 	SOS_API();
-	SOS_API(String ca);				//API‚Ìƒeƒ“ƒvƒŒ[ƒg‚Ì“Ç‚İ‚İ
-	String write(String word);		//%DATA%‚ğword‚É‘‚«Š·‚¦‚é
-	String replace(String str0, String str1);	//str0‚ğstr1‚É‘‚«Š·‚¦‚é
-	String undo();					//•ÒW‘O‚Ìƒeƒ“ƒvƒŒ[ƒg‚É–ß‚·
+	SOS_API(String ca);				//APIã®ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã®èª­ã¿è¾¼ã¿
+	String write(String word);		//%DATA%ã‚’wordã«æ›¸ãæ›ãˆã‚‹
+	String replace(String str0, String str1);	//str0ã‚’str1ã«æ›¸ãæ›ãˆã‚‹
+	String undo();					//ç·¨é›†å‰ã®ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã«æˆ»ã™
 };
 
-/* ƒRƒ“ƒXƒgƒ‰ƒNƒ^ */
+/* ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ */
 SOS_API::SOS_API() {
 
 }
 
-/*@
-	ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-	ˆø”@String str :SOS API‚Ìƒeƒ“ƒvƒŒ[ƒg
+/*ã€€
+	ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+	å¼•æ•°ã€€String str :SOS APIã®ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆ
 */
 SOS_API::SOS_API(String str) {
 	original = str;
@@ -44,10 +44,10 @@ SOS_API::SOS_API(String str) {
 }
 
 /*
-	ƒƒbƒ\ƒh	
-	‹@”\	ƒeƒ“ƒvƒŒ[ƒg“à‚Ì%DATA%•¶š—ñ‚ğword‚É“ü‚ê‘Ö‚¦‚é
-	ˆø”	String word		:ƒeƒ“ƒvƒŒ[ƒg“à‚Ì%DATA%‚ğword‚É‘‚«Š·‚¦‚é
-	–ß‚è’l	Sting			:‘‚«Š·‚¦Œã‚ÌAPIƒf[ƒ^
+	ãƒ¡ãƒƒã‚½ãƒ‰	
+	æ©Ÿèƒ½	ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆå†…ã®%DATA%æ–‡å­—åˆ—ã‚’wordã«å…¥ã‚Œæ›¿ãˆã‚‹
+	å¼•æ•°	String word		:ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆå†…ã®%DATA%ã‚’wordã«æ›¸ãæ›ãˆã‚‹
+	æˆ»ã‚Šå€¤	Sting			:æ›¸ãæ›ãˆå¾Œã®APIãƒ‡ãƒ¼ã‚¿
 */
 String SOS_API::write(String word)
 {
@@ -57,11 +57,11 @@ String SOS_API::write(String word)
 
 
 /*
-	ƒƒbƒ\ƒh
-	‹@”\	ƒeƒ“ƒvƒŒ[ƒg“à‚Ì•¶š—ñstr0‚ğ•¶š—ñstr1‚É’u‚«Š·‚¦‚é
-	ˆø”	String str0		:ƒeƒ“ƒvƒŒ[ƒg“à‚Ì’uŠ·‚³‚ê‚é•¶š—ñ
-			String str1		:ƒeƒ“ƒvƒŒ[ƒg“à‚Ìstr0‚É‘Ö‚í‚è’uŠ·‚·‚é•¶š—ñ
-	–ß‚è’l	Sting			:‘‚«Š·‚¦Œã‚ÌAPIƒf[ƒ^
+	ãƒ¡ãƒƒã‚½ãƒ‰
+	æ©Ÿèƒ½	ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆå†…ã®æ–‡å­—åˆ—str0ã‚’æ–‡å­—åˆ—str1ã«ç½®ãæ›ãˆã‚‹
+	å¼•æ•°	String str0		:ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆå†…ã®ç½®æ›ã•ã‚Œã‚‹æ–‡å­—åˆ—
+			String str1		:ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆå†…ã®str0ã«æ›¿ã‚ã‚Šç½®æ›ã™ã‚‹æ–‡å­—åˆ—
+	æˆ»ã‚Šå€¤	Sting			:æ›¸ãæ›ãˆå¾Œã®APIãƒ‡ãƒ¼ã‚¿
 */
 String SOS_API::replace(String str0, String str1)
 {
@@ -71,10 +71,10 @@ String SOS_API::replace(String str0, String str1)
 
 
 /*
-	ƒƒbƒ\ƒh
-	‹@”\	•ÒWƒf[ƒ^‚ğ•ÒW‘O‚Ì‰Šúó‘Ô‚É–ß‚·
-	ˆø”	String word		:ƒeƒ“ƒvƒŒ[ƒg“à‚Ì%DATA%‚ğword‚É‘‚«Š·‚¦‚é
-	–ß‚è’l	Sting			:‘‚«Š·‚¦Œã‚ÌAPIƒf[ƒ^
+	ãƒ¡ãƒƒã‚½ãƒ‰
+	æ©Ÿèƒ½	ç·¨é›†ãƒ‡ãƒ¼ã‚¿ã‚’ç·¨é›†å‰ã®åˆæœŸçŠ¶æ…‹ã«æˆ»ã™
+	å¼•æ•°	String word		:ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆå†…ã®%DATA%ã‚’wordã«æ›¸ãæ›ãˆã‚‹
+	æˆ»ã‚Šå€¤	Sting			:æ›¸ãæ›ãˆå¾Œã®APIãƒ‡ãƒ¼ã‚¿
 */
 String SOS_API::undo()
 {
@@ -83,7 +83,7 @@ String SOS_API::undo()
 }
 
 
-/* SOS_API‚ÌŒp³‚Ì—á */
+/* SOS_APIã®ç¶™æ‰¿ã®ä¾‹ */
 class inheritance_SOS_API : public SOS_API {
 private:
 public:
@@ -94,11 +94,11 @@ inheritance_SOS_API::inheritance_SOS_API()
 {
 
 }
-/* ˆø”•t‚«ƒRƒ“ƒXƒgƒ‰ƒNƒ^ */
+/* å¼•æ•°ä»˜ãã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ */
 inheritance_SOS_API::inheritance_SOS_API(String data):SOS_API(data)
 {
-	//protected‚ğpublic‚ÅŒp³‚µ‚Ä‚¢‚é‚Ì‚ÅŠî’êƒNƒ‰ƒXSOS_AP‚ÌƒvƒƒpƒeƒB‚ªŒ©‚¦‚Ä‚¢‚éD
-	copy = data;
+	//protectedã‚’publicã§ç¶™æ‰¿ã—ã¦ã„ã‚‹ã®ã§åŸºåº•ã‚¯ãƒ©ã‚¹SOS_APã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãŒè¦‹ãˆã¦ã„ã‚‹ï¼
+
 }
 
 
@@ -108,11 +108,11 @@ void setup()
 	inheritance_SOS_API inheri_sos_insertresult(insertresult);
 
 	Serial.begin(9600);
-	delay(1000);	//ƒVƒŠƒAƒ‹ƒ|[ƒg‚Ì‰Šú‰»‚ÌŠÔ‚ğ‰Ò‚®
+	delay(1000);	//ã‚·ãƒªã‚¢ãƒ«ãƒãƒ¼ãƒˆã®åˆæœŸåŒ–ã®æ™‚é–“ã‚’ç¨¼ã
 	Serial.println("*****************************************");
 	Serial.println("Start Arduino\n");
 
-	String  data = "1@2017-04-19T13:30:00+02:00#12.34@";	//ƒf[ƒ^—ñ‚Ìˆê—á
+	String  data = "1@2017-04-19T13:30:00+02:00#12.34@";	//ãƒ‡ãƒ¼ã‚¿åˆ—ã®ä¸€ä¾‹
 	
 	Serial.println("write method");
 	Serial.print("SOS APPI: InsertResult JSON\n"); Serial.println(sos_insertresult.write(data));
