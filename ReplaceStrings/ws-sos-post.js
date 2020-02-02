@@ -19,7 +19,7 @@ var options = {
 	body:{}
 };
 
-/* SOS WS00の温度データ送信用データ(JSON形式)のひな型 */
+/* SOS WS01の温度データ送信用データ(JSON形式)のひな型 */
 var request_post_body_json = `{
   "request": "InsertResult",
   "service": "SOS",
